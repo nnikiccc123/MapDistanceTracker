@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, serif;
+    font-size: 13pt;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    font-size: 13pt;
+    margin-right: 10px;
+}
+
+
+#map {
+    flex-grow: 1;
+    border: rgb(68, 72, 152) double;
+    margin: 10px 0;
+}
+
+.maptooltip {
+    font-weight: bold;
+}

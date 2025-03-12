@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps API</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script type="text/javascript" src="static/js/script.js"></script>
+</head>
+
+<body>
+    <div style="width: 100%; height: 100%; display: flex; flex-direction: column; padding: 10px;">
+        <div class="header">
+            <h1>Merenje razdljina uz pomoć Google mapa i Leaflet biblioteke</h1>
+        </div>
+        <div>Koristi jedan klik za definisanje tačaka putanje, a dupli klik da završiš putanju. Desnim klikom se briše poslednja tačka.</div>
+        <div id="map"></div>
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <button id="clear">Obriši sva merenja</button>
+            <div id="distance">
+                Poslednja razdaljina: <span id="total-distance"></span>
+            </div>
+        </div>
+        <script>
+            initMap();
+        </script>
+    </div>
+</body>
