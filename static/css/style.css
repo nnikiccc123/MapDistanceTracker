@@ -108,7 +108,11 @@ div[style*="flex-direction: row"] {
 
 @media (max-width: 768px) {
   .header h1 {
-    font-size: 2rem;
+    font-size: 1rem;
+  }
+
+  .instructions p {
+    font-size: 18px; /* manja veličina na telefonu */
   }
 
   #clear {
@@ -124,6 +128,9 @@ div[style*="flex-direction: row"] {
 @media (max-width: 480px) {
   .header h1 {
     font-size: 1.2rem;
+  }
+  .instructions p {
+    font-size: 12px; /* manja veličina na telefonu */
   }
 
   #clear {
