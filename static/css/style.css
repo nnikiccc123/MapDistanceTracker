@@ -157,6 +157,9 @@ body {
     align-items: stretch;
     gap: 5px;
   }
+  #map {
+    max-height: 60vh; /* mapa zauzima do 60% visine ekrana */
+  }
 }
 
 @media (max-width: 480px) {
