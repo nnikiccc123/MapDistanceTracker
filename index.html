@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Map Distance Tracker</title>
-    <link rel="stylesheet" href="style.css?v=2" />
+    <link rel="stylesheet" href="static/css/style.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
@@ -16,15 +16,15 @@
       src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
       integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
       crossorigin=""
-      defer
     ></script>
-    <script src="script.js?v=2" defer></script>
+    <script type="text/javascript" src="static/js/script.js"></script>
   </head>
+
   <body>
     <div class="container">
-      <header class="header">
+      <div class="header">
         <h1>Map Distance Tracker</h1>
-      </header>
+      </div>
 
       <div class="instructions">
         Use a single click to set path points, double-click to finish the path,
@@ -33,16 +33,21 @@
 
       <div id="map"></div>
 
-      <footer class="footer">
+      <div class="footer">
         <div class="buttons">
-          <button id="clear">Clear All</button>
-          <button id="clear-last">Remove Last Line</button>
+          <button id="clear">Clear all</button>
+          <button id="clear-last">Remove last line</button>
           <button id="finish-distance">Finish Distance</button>
         </div>
+
         <div id="distance">
-          Last Distance: <span id="total-distance"></span>
+          Last distance: <span id="total-distance"></span>
         </div>
-      </footer>
+      </div>
+
+      <script>
+        initMap();
+      </script>
     </div>
   </body>
 </html>

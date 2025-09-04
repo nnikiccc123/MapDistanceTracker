@@ -1,3 +1,4 @@
+/* Osnovno */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,7 @@ body {
   color: #333;
 }
 
+/* Container sa mapom i footerom */
 .container {
   display: flex;
   flex-direction: column;
@@ -24,15 +26,18 @@ body {
 }
 
 @keyframes backgroundShift {
-  0%,
-  100% {
+  0% {
     background: linear-gradient(135deg, #e0f7ff, #fffbe0);
   }
   50% {
     background: linear-gradient(135deg, #d0e7ff, #fff0b5);
   }
+  100% {
+    background: linear-gradient(135deg, #e0f7ff, #fffbe0);
+  }
 }
 
+/* Header */
 .header h1 {
   font-size: 1.8rem;
   color: #003366;
@@ -45,6 +50,7 @@ body {
   transform: scale(1.05) rotate(-1deg);
 }
 
+/* Instructions */
 .instructions {
   text-align: center;
   margin-bottom: 10px;
@@ -56,89 +62,110 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Mapa */
 #map {
   flex: 1;
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 200px;
 }
 #map:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Footer */
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
+/* Dugmad */
 .buttons {
   display: flex;
   gap: 10px;
-  flex: 1;
 }
 
-#clear,
-#clear-last,
-#finish-distance {
-  flex: 1 1 0;
+.buttons button {
+  flex: 1; /* sve dugmad iste širine */
+  max-width: 160px;
   height: 50px;
-  max-width: 200px;
-  background: #003366;
-  color: #ffd700;
+  font-size: 1rem;
   font-weight: bold;
-  font-size: 1.2rem;
+  color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #2575fc, #2575fc);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-#clear:hover,
-#clear-last:hover,
-#finish-distance:hover {
-  background: #0055aa;
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
+.buttons button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: all 0.5s ease;
+}
+
+.buttons button:hover::before {
+  left: 125%;
+}
+
+.buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #2575fc, #2575fc);
+}
+
+/* Distance text */
 #distance {
   font-size: 1.5rem;
   color: #003366;
   font-weight: 600;
-  margin-left: 10px;
+  min-width: 150px;
+  text-align: center;
 }
 
+/* Responsive za tablet/mobilne */
 @media (max-width: 768px) {
-  .buttons {
-    flex-direction: column;
-    gap: 5px;
-  }
-  #clear,
-  #clear-last,
-  #finish-distance {
-    max-width: 100%;
-    height: 50px;
-    font-size: 1rem;
-  }
   .instructions {
     font-size: 1rem;
+  }
+  .buttons button {
+    height: 45px;
+    max-width: 140px;
+    font-size: 0.9rem;
+  }
+  #distance {
+    font-size: 1.2rem;
+    margin-top: 5px;
+  }
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
   }
 }
 
 @media (max-width: 480px) {
-  #map {
-    flex: 0.7;
-    padding-bottom: 60px;
-  } /* footer uvek vidljiv */
   .instructions {
     font-size: 0.9rem;
+  }
+  .buttons button {
+    height: 40px;
+    font-size: 0.8rem;
   }
   #distance {
     font-size: 1rem;
