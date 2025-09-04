@@ -14,7 +14,7 @@ html {
   overflow: hidden;
 }
 
-div[style*="flex-direction: column"] {
+.container {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -49,10 +49,10 @@ div[style*="flex-direction: column"] {
   transform: scale(1.05) rotate(-1deg);
 }
 
-div > div:first-of-type + div {
+.instructions {
   text-align: center;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #003366;
   background: rgba(255, 255, 0, 0.2);
   padding: 5px 10px;
@@ -60,6 +60,7 @@ div > div:first-of-type + div {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* MAPA */
 #map {
   flex: 1;
   width: 100%;
@@ -73,20 +74,31 @@ div > div:first-of-type + div {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-div[style*="flex-direction: row"] {
+/* FOOTER */
+.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
 
-#clear {
-  padding: 10px 20px;
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+#clear,
+#clear-last,
+#finish-distance {
+  flex: 1;
+  min-width: 120px;
+  height: 50px;
+  text-align: center;
+  padding: 0;
+  font-size: 1rem;
   background: #003366;
   color: #ffd700;
   font-weight: bold;
-  font-size: 1.2rem;
-
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -94,7 +106,9 @@ div[style*="flex-direction: row"] {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-#clear:hover {
+#clear:hover,
+#clear-last:hover,
+#finish-distance:hover {
   background: #0055aa;
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
@@ -106,39 +120,33 @@ div[style*="flex-direction: row"] {
   font-weight: 600;
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .header h1 {
+  .instructions {
     font-size: 1rem;
   }
-
-  .instructions p {
-    font-size: 18px; /* manja veličina na telefonu */
-  }
-
-  #clear {
-    padding: 8px 15px;
-    font-size: 1.2rem;
-  }
-
-  #distance {
-    font-size: 1.2rem;
+  #clear,
+  #clear-last,
+  #finish-distance {
+    min-width: 80px;
+    height: 45px;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
-  .header h1 {
-    font-size: 1.2rem;
-  }
-  .instructions p {
-    font-size: 12px; /* manja veličina na telefonu */
-  }
-
-  #clear {
-    padding: 6px 12px;
+  .instructions {
     font-size: 0.8rem;
   }
-
-  #distance {
+  #clear,
+  #clear-last,
+  #finish-distance {
+    min-width: 70px;
+    height: 40px;
     font-size: 0.8rem;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 5px;
   }
 }
